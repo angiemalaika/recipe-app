@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "Signed in!"
     else 
 
-      render 'sessions/new'
+      render 'users/new'
+    end 
   end
  
   def destroy
