@@ -7,55 +7,66 @@ Recipes
 Tables : 
 
 User
--has_many :recipes 
--has_many :ingredients, through: :recipes 
+<!-- -has_many :recipes  -->
+<!-- -has_many :ingredients, through: :recipes  -->
 <!-- -(has_many :recipes, through: :recipe_rating) -->
 <!-- -has_many :ingredients -->
 <!-- -has_many :recipe_ratings  -->
 <!-- -has_many :comments  -->
--validates : name, password
--has_secure_password
+<!-- -validates : name, password -->
+<!-- -has_secure_password -->
+-add password lenghth validation 
+-add admin bolean field validation 
+-ass regular sessions login (sessions controller?)
 
 Recipe 
--belongs_to :user 
--has_many :ingredient_qty
+<!-- -belongs_to :user  -->
+<!-- -has_many :ingredient_qty
 -has_many :Ingredients
 -validates :name, uniqueness: true
--validates :name, presence: true
+-validates :name, presence: true -->
 <!-- -has_many :comments -->
 
 
 Ingredient 
--has_many :recipes, through: :ingredient_qty 
--has_many :ingredient_qty
+<!-- -has_many :recipes, through: :ingredient_qty 
+-has_many :ingredient_qty -->
 
 Ingredient_qty 
--belongs to :recipe 
--belongs to :ingredient 
+<!-- -belongs to :recipe 
+-belongs to :ingredient  -->
 
 
 
 Nice to Have 
 -------------------------------------
-Comments 
+<!-- Comments 
 -belongs to :recipe 
--belongs to :user 
+-belongs to :user  -->
 
 Recipe_rating
 -belongs_to :user
 -belongs_to :recipe
-
-
-
-
 1. rails new rails-portfolio project
-2. create tables 
-3. create routes
-3. omniauth 
-    -add gems 
-    -add .env and add it to gitignore 
-    -bundle install 
-    -create home view + route + session-c and user model 
+<!-- 2. create tables  -->
+3. create routes/ controllers 
+<!-- 3. omniauth  -->
+    <!-- add gems  -->
+    <!-- add .env and add it to gitignore  -->
+    <!-- bundle install  -->
+    <!-- models -->
+4. Create recipe controller actions and routes 
+    user controller actions and routes
+    Ingredients 
+    ingredient_qty 
+    comments 
+
+5. form partials for new and edit actions 
+6. test validations 
+7. links + static about page 
+8. User faker gem for seed data 
+
+
 
 
 
