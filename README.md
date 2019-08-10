@@ -55,7 +55,7 @@ Recipe_rating
     <!-- add .env and add it to gitignore  -->
     <!-- bundle install  -->
     <!-- models -->
-4. Create recipe controller actions and routes 
+4. Create recipe controller actions and routes /fix login logic 
     user controller actions and routes
     Ingredients 
     ingredient_qty 
