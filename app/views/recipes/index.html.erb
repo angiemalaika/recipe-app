@@ -26,4 +26,10 @@
   </tbody>	
 </table>	
 <br>
-
+<p>
+<footer id="footer">
+<% if current_user %>
+<p>You are logged in as: <%= current_user.email %></p>
+<p><%=link_to "Logout", logout_path%></p>
+  <% end %>
+</footer>
