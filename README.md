@@ -19,6 +19,45 @@ User
 -add admin bolean field validation 
 -ass regular sessions login (sessions controller?)
 
+Authentication 
+-add email to user model 
+
+Auth URLs
+-get/signup 
+-get/users/new   UsersController#new 
+        -form 
+-post/signup
+-post/users UsersController#create 
+        -create user in db 
+
+
+get/login #= Sessions #new 
+-form
+post/login
+-post/login #=Sessions #create
+
+
+  def change
+    add_column :users, :password_digest, :string
+    add_column :users, :admin, :boolean, default:false
+  end
+end
+
+
+class CreateComments < ActiveRecord::Migration[5.2]
+  def change
+    create_table :comments do |t|
+      t.references :user, foreign_key: true
+      t.references :recipe, foreign_key: true
+      t.text :body
+
+      t.timestamps
+    end
+  end
+end
+
+
+
 Recipe 
 <!-- -belongs_to :user  -->
 <!-- -has_many :ingredient_qty
@@ -138,3 +177,34 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+#session/new
+ <div class="form-group">	
+    <%= label_tag(:password, "Password:") %>	
+    <%= password_field_tag(:password, nil, class: "form-control") %>	
+  </div>	
+
+
+#user/new
+
+  <div class="form-group">	
+    <%= f.label :name,"Name" %>	
+    <br>	
+    <%= f.text_field :name, class: "form-control" %>	
+   </div>	
+
+
+
+   <div class="form-group">	
+    <%= f.label :password_digest, "Password" %>	
+    <br>	
+    <%= f.password_field :password_digest, class: "form-control" %>	
+  </div>	
+
+   <div class="form-group">
+
+     <%= f.label :password_digest, "Comfirm Password" %>	
+    <br>	
+    <%=f.password_field :password_digest,class: "form-control"%>
+    <br>
+   </div> 

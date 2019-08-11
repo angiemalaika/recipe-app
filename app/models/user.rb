@@ -1,9 +1,13 @@
-class User < ApplicationRecord
-   # has_secure_password
+class User < ActiveRecord::Base
+    #  has_secure_password
+     validates :email, presence: true
+     validates :email, uniqueness:  true
     has_many :recipes 
     has_many :ingredients, through: :recipes 
-    has_many :comments
 
+
+  
+  end
 
     # def self.create_with_omniauth(auth)
     #   create! do |user|
@@ -12,6 +16,3 @@ class User < ApplicationRecord
     #     user.name = auth["info"]["name"]
     #   end
     # end
-
-    
-  end

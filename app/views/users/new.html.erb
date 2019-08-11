@@ -1,6 +1,17 @@
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to('Log in with Github!', '/auth/github') %>
-<% end %>
+<h1>Signup!</h1>
+
+<%= form_for @user do |f| %>
+  <%= render 'users/errors', form: @user %>
+   <div class="form-group">	
+    <%= f.label :email,"Email" %>	
+    <br>	
+    <%= f.email_field :email, class: "form-control" %>	
+   </div>	
+   <div class="actions">	
+    <br/>	
+    <%= f.submit class: "btn btn-primary" %>	
+  </div>	
+ <% end %> 
+#<#%#=# link_to "Login with Github", "/auth/github", id: "sign_in" #%>
+
+  

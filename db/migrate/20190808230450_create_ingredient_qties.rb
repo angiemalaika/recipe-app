@@ -4,7 +4,6 @@ class CreateIngredientQties < ActiveRecord::Migration[5.2]
       t.string :quantity
       t.references :recipe, foreign_key: true
       t.references :ingredient, foreign_key: true
-
       t.timestamps
     end
   end
