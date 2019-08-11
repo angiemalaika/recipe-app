@@ -1,13 +1,9 @@
-<%= form_tag(sessions_path) do %>	
+<h1>Login</h1>
 
-   <div class="form-group">	
-    <%= label_tag(:email, "Email:") %>	
-    <%= text_field(:email, class: "form-control") %>
-    <div>	
-    	
-   <div class="actions">	
-    <%= submit_tag("Sign In") %>	
-  </div>	
- <% end %> 
+<%= form_tag '/login' do %>
 
- #<#%= link_to "Log in with Github", "/auth/github", id: "sign_in" #%>
+  <div>Email:</div> <div><%= text_field_tag :email %></div>
+  
+  <%= submit_tag "Submit" %>
+
+<% end %>

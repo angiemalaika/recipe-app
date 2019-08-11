@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         # @user.email= params[:user][:email]
         # @user.password_digest= params[:user][:password_digest]
             if @user.save 
-        redirect_to user_path(@user) #get request to index "/"
+        redirect_to recipes_path #get request to index "/"
         else 
           render :new #show them the signup form 
       end 

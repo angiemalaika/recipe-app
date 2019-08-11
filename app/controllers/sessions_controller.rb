@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end 
 
   def create
-    raise
+  
     user = User.find_by(:email =>params[:email])
     session[:user_id] = user.id 
     
