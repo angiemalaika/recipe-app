@@ -8,10 +8,15 @@
     <%= f.email_field :email, class: "form-control" %>	
    </div>	
    <div class="actions">	
-    <br/>	
+     <%= f.label :password, "Password" %>	
+    <br>	
+    <%=f.password_field :password,class: "form-control"%>
+    </div>	
+   <div class="actions">	
     <%= f.submit class: "btn btn-primary" %>	
   </div>	
  <% end %> 
-<%= link_to "Singup with Github", "/auth/github"%>
+ <br>
+<p><%= link_to "Singup with Github", "/auth/github"%><p>
 
   

@@ -26,14 +26,6 @@ class RecipesController < ApplicationController
            
           end
         end
-    
-#     def create 
-#         recipe = Recipe.create(recipe_params) 
-#         if  recipe.save #add ability for logged in user if loged in.....create else redirect to login/signup
-#        redirect_to recipe_path(recipe), notice: "Saved!"
-        
-#     end 
-# end 
 
     def update 
           # @recipe = Recipe.find_by(params[:id])

@@ -4,27 +4,23 @@ class UsersController < ApplicationController
       end
 
       def create  
-       # auth = request.env["omniauth.auth"]
-        @user=User.new(user_params)
-        #@user.email = params[:user][:email]
-        # @user.name = params[:user][:name]
-        # @user.email= params[:user][:email]
-        # @user.password_digest= params[:user][:password_digest]
-            if @user.save 
-        redirect_to recipes_path #get request to index "/"
+        @user=User.new
+        @user.email = params[:user][:email]
+        @user.password = params[:user][:password]
+        
+        if @user.save
+          session[:user_id] = @user.id 
+           redirect_to root_path
         else 
-          render :new #show them the signup form 
+          render 'users/new'
       end 
-    end 
-
-     private 
-
-    def user_params 
-         params.require(:user).permit([:user])
-        #[:user] [:email], [:user][:password_digest])
-    end 
-  
-end
+  end
 
 
+
+
+  # def user_params 
+    #      params.require(:user).permit([:user])
+    #     #[:user] [:email], [:user][:password_digest])
+    # end 
 # params[:user][:email].present? && !User.exists (:email =>params [:user][email])

@@ -2,9 +2,10 @@
 
 <%= form_tag '/login' do %>
 
-  <div>Email:</div> <div><%= text_field_tag :email %></div>
-  
-  <%= submit_tag "Submit" %>
-
+  <div>Email: </div> <div><%= text_field_tag :email %></div>
+   <div> Password: </div> <div><%= password_field_tag :password%>	</div>
+   <div class="actions">	
+    <%= submit_tag("login") %>	
+  </div>	
 <% end %>
-<%= link_to "Singup with Github", "/auth/github"%>
+<p><%= link_to "Login with Github", "/auth/github"%><p>
