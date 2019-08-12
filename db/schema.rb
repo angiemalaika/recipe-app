@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_230450) do
+ActiveRecord::Schema.define(version: 2019_08_12_002553) do
 
   create_table "ingredient_qties", force: :cascade do |t|
     t.string "quantity"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_230450) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

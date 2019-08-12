@@ -33,3 +33,11 @@
 <p><%=link_to "Logout", logout_path%></p>
   <% end %>
 </footer>
+
+
+  <% if !current_user %>	
+          <%= link_to "New User", new_user_path %>
+          <%= link_to "Login", login_path, class:"navbar-brand" %>	
+        <% end %>
+
+        
