@@ -86,16 +86,35 @@ Nice to Have
 Recipe_rating
 -belongs_to :user
 -belongs_to :recipe
-1. rails new rails-portfolio project
+
+
+
+1. rails new reipe
 <!-- 2. create tables  -->
-3. create routes/ controllers 
-<!-- 3. omniauth  -->
-    <!-- add gems  -->
-    <!-- add .env and add it to gitignore  -->
-    <!-- bundle install  -->
-    <!-- models -->
-4. Create recipe controller actions and routes /fix login logic 
-    user controller actions and routes
+create table Users: 
+create table Recipes :
+create table Ingredients:
+
+User ==> has many==> Recipes
+Recipe ==>has many ==>Ingredients 
+User==>has many==>Ingredients==>through==>Recipes 
+
+2. Setup Login 
+
+3. create controllers 
+ Users 
+ Recipe 
+ Ingredients 
+
+
+
+4. Create  routes /fix login logic 
+    <!-- user controller actions and routes -->
+    Recipes Controller and Routes 
+    -Index, Show, Create, Edit, Update, Destroy 
+    -Routes 
+    
+
     Ingredients 
     ingredient_qty 
     comments 
@@ -104,6 +123,8 @@ Recipe_rating
 6. test validations 
 7. links + static about page 
 8. User faker gem for seed data 
+
+
 
 
 
@@ -208,3 +229,39 @@ Things you may want to cover:
     <%=f.password_field :password_digest,class: "form-control"%>
     <br>
    </div> 
+
+
+
+
+
+   <td><strong>Yummy Recipes</strong></td>	
+<tbody>	
+   <table cellpadding="5" cellspacing="10">
+   <td><strong>Name</strong></td>
+   <td><strong>Prep Time</strong></td>/
+   <td><strong>Directions</strong></td>	
+    </tr>
+    <div class="recipes">
+   <% @recipes .each do |recipe| %>	
+        <div class ="recipe">
+         <td><%= link_to recipe.name,recipe_path(recipe)%></td>	
+        <td><%= recipe.prep_time %></td>	
+            <td><%= recipe.directions%></td>
+            <tr>
+      </div>
+   <% end %>	
+      </tr>	
+  </tbody>	
+</table>	
+<br>
+<p>
+<footer id="footer">
+<% if current_user %>
+<p>You are logged in as: <%= current_user.email %></p>
+<p><%=link_to "Logout", logout_path%></p>
+ <ul class ='recipe-actions'>
+      <li><%= link_to "Edit", edit_user_recipe_path(@recipe) %><li>
+      <li><%= link_to "Delete",recipe_path(recipe) , data: {confirm: "Are you sure you want to delete: #{recipe.name}?"}, method: :delete%><li>
+      </ul>
+  <% end %>
+</footer>

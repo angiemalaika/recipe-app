@@ -1,6 +1,6 @@
-<h1>Yummy Recipes</h1>	
-
-
+<div class="title-container">
+  <h1>Recipes</h1>
+</div>
  <table class="table">	
   <thead>	
     <tr>	
@@ -10,31 +10,45 @@
 
    <tbody>	
     <tr> 	
-      <td><strong>Name</strong></td>|
-
-      <td><strong>Prep Time</strong></td>|
-
-      <td><strong>Directions</strong></td>	
-    </tr>
-        <% @recipes .each do |recipe| %>	
+      <td><strong>Name</strong></td>	
+      <td><strong>Prep_Time</strong></td>	
+      <td><strong>Cooking_Time</strong></td>
+      <td><strong>Directions </strong></td>	
+    </tr>	
+    <% @recipes.each do |recipe| %>	
       <tr>	
-         <td><%= recipe.name %></td>	
-        <td><%= recipe.prep_time %></td>	
-         <td><%= link_to "Click for Directions", recipe_path(recipe) %></td>
-   <% end %>	
-      </tr>	
-  </tbody>	
-</table>	
-<br>
-<p>
+         <td><%= link_to recipe.name, recipe_path(recipe)%></td>	
+        <td><%= recipe.prep_Time%></td>	
+        <td><%= recipe.cooking_time%></td>	
+        <td><%= recipe.directions%></td>	
+        
+
+
 <footer id="footer">
 <% if current_user %>
 <p>You are logged in as: <%= current_user.email %></p>
 <p><%=link_to "Logout", logout_path%></p>
   <% end %>
-</footer>
 
 
 
+        <% if current_user.admin %>	
+          <td><%= link_to "Show #{attraction.name}", attraction_path(attraction) %></td>	
+        <% else %>	
+          <td><%= link_to "Go on #{attraction.name}", attraction_path(attraction) %></td>	
+        <% end %>	
+      </tr>	
+    <% end %>	
+  </tbody>	
+</table>	
+<br>	
+
+ <% if @user %>	
+  <p>	
+    <%= link_to "Back to profile", user_path(@user), {:class => "btn btn-primary"} %>	
+  </p>	
+<% else %>	
+  <p><%= link_to 'New Attraction', new_attraction_path %></p>	
+<% end %>
 
         

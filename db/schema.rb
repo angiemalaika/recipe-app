@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_002553) do
+ActiveRecord::Schema.define(version: 2019_08_16_171408) do
 
   create_table "ingredient_qties", force: :cascade do |t|
     t.string "quantity"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_002553) do
     t.string "serving_yield"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_recipes_on_user_id_and_name"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_002553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "name"
   end
 
 end

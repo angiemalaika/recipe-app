@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
 
   validates :name, uniqueness:true 
   validates :name, presence: true
-  #validates :directions, presence: true
-  #validates :time, presence: true 
+
+
  
 end

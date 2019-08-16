@@ -10,5 +10,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :serving_yield 
       t.timestamps
     end
+    add_index :recipes, :user_id
+    #Ex:- add_index("admin_users", "username")
   end
 end
