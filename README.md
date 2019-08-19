@@ -265,3 +265,74 @@ Things you may want to cover:
       </ul>
   <% end %>
 </footer>
+
+
+
+Session#new 
+
+<h1>Login</h1>
+
+<%= form_tag '/login' do %>
+
+  <div>Email: </div> <div><%= text_field_tag :email %></div>
+   <div> Password: </div> <div><%= password_field_tag :password%>	</div>
+   <div class="actions">	
+    <%= submit_tag("login") %>	
+  </div>	
+<% end %>
+<p><%= link_to "Login with Github", "/auth/github"%><p>
+
+
+Users #_errors, new, show 
+  <% if alert %>
+      <div id="notice_wrapper" class="alert">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% elsif notice %>
+      <div id="notice_wrapper">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+
+<%= form_for @user do |f| %>
+  <%= render 'users/errors', form: @user %>
+   <div class="form-group">	
+    <%= f.label :email,"Email" %>	
+    <br>	
+    <%= f.email_field :email, class: "form-control" %>	
+   </div>	
+   <div class="actions">	
+     <%= f.label :password, "Password" %>	
+    <br>	
+    <%=f.password_field :password,class: "form-control"%>
+    </div>	
+    
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+   <div class="actions">	
+    <%= f.submit class: "btn btn-primary" %>	
+  </div>	
+ <% end %> 
+ <br>
+<p><%= link_to "Singup with Github", "/auth/github"%><p>
+
+  
+
+  <p id="notice"><%= notice %></p>	
+    <% if flash[:message] %>	
+    <div class="center alert">	
+    <p><%= flash[:message] %></p>	
+    </div>	
+        <% end %>	    
+    <div class="center">	
+   <div class="info">	
+    <p><strong>Name:</strong> <%= @user.name %></p>	
+
+    <p>My Recipes:</p>
+    <% @user.recipes.each do |recipe| %>
+    <div><%= recipe.name%></div>
+    <% end %>
+    <p><%= link_to 'View Recipes', user_recipes_path %></p>	
+  </div>	
+</div> 

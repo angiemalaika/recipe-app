@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
-class RecipeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
+describe Recipe do
+  # it "does a thing" do
+  #   value(1+1).must_equal 2
   # end
 end

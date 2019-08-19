@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
-class RecipesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
+describe RecipesController do
+  # it "does a thing" do
+  #   value(1+1).must_equal 2
   # end
 end

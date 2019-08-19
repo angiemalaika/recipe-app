@@ -1,58 +1,50 @@
 class RecipesController < ApplicationController
-    before_action :authentication_required 
-    # before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+    #dry
+    before_action :find_recipe, only:[:show, :edit, :update, :destroy]
 
-    def index
-    #    if  current_user.present?
-      #  raise session[:user_id].inspect
-        # @recipes = Recipe.all 
-        @recipes = current_user.recipes.order(:id)
-
-    #/recipes in recipes/index view  - lists al lthe recipes a user has - add link to create new recipe 
-       
-    end 
-
-    def new 
-        @recipe = Recipe.new 
-
-        #/recipes/new -shows new.html form to create new recipe. add cancel or back button incase user changes their mind 
-
+    def index 
+        @recipes = Recipe.all.order("created_at DESC")
     end 
 
     def show 
-        @recipe = Recipe.find(params[:id])
-        #/recipes/:id - shows details for individual recipe add edit and delete links 
-
     end 
 
-    def create
-        @recipe = Recipe.find_or_create_by(recipe_params)
-           @recipe.save
-           redirect_to redirect_to controller: "recipes", action: "show", id: @recipe
+     def new
+        @recipe = Recipe.new
     end
 
-    def update 
-          # @recipe = Recipe.find_by(params[:id])
-          @recipe.update(recipe_params)
-          redirect_to recipe_path(@recipe)
+    def create 
+        @recipe = Recipe.new(recipe_params)
+        if @recipe.save
+			redirect_to @recipe, notice: "Successfully created new recipe"
+		else
+			render 'new'
+		end
     end 
 
     def edit 
-          # @recipe = Recipe.find_by(params[:id])
     end 
 
+    def update 
+        if @recipe.update(recipe_params)
+			redirect_to @recipe
+		else
+			render 'edit'
+		end
+    end 
+     
     def destroy
-    # @recipe = Recipe.find_by(params[:id])
-    end 
-
+        @recipe.destroy
+		redirect_to root_path, notice: "Successfully deleted recipe"
+    end
+    
     private 
 
-    def recipe_params 
-        params.require(:recipe).permit(:name,:user_id, :directions,:user_id, :prep_time ,  :cooking_time, :level, :serving_yield  )
-
+    def recipe_params
+        params.require(:recipe).permit(:name, :directions, :prep_time, :cooking_time, :serving, :user_id)
     end 
 
-    def find_recipe 
-        @recipe = Recipe.find(params[:id ])
+    def find_recipe
+        @recipe = Recipe.find( params[:id])
     end 
 end

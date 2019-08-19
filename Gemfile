@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'simple_form', '~> 4.1'
 ruby '2.6.1'
 gem 'dotenv-rails'
+gem 'simple_nested_form', '~> 1.1', '>= 1.1.1'
 #gem 'haml'
+gem 'boostrap-sass', '~> 0.0.2'
 gem 'ruby'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -54,3 +56,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gem 'omniauth-rails_csrf_protection'
+

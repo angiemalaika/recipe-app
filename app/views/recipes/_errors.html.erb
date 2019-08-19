@@ -1,0 +1,7 @@
+<% if @recipe.errors.any? %>
+<div id="errors"></div>
+<p></p>
+<p><%= @recipe.errors.count %></p>
+<ul>Prevented this recipe from saving</ul>
+<% @recipe.errors.full_messages.each do |msg| %>
+  <%=msg%>

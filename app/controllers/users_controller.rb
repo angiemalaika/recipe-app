@@ -17,15 +17,15 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find_by(id:params[:id])
+    @user = find_by_id(user_params)
   end 
 end 
 
 
 
 
-  # def user_params 
-    #      params.require(:user).permit([:user])
-    #     #[:user] [:email], [:user][:password_digest])
-    # end 
+  def user_params 
+        
+         params.require(:recipe).permit(:name,:password,:email,:id )
+    end 
 # params[:user][:email].present? && !User.exists (:email =>params [:user][email])

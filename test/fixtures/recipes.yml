@@ -2,8 +2,16 @@
 
 one:
   name: MyString
-  user: one
+  directions: MyText
+  prep_time: MyString
+  cooking_time: MyString
+  serves: 1
+  user_id: 1
 
 two:
   name: MyString
-  user: two
+  directions: MyText
+  prep_time: MyString
+  cooking_time: MyString
+  serves: 1
+  user_id: 1

@@ -47,13 +47,20 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    autoprefixer-rails (9.6.1)
+      execjs
     bcrypt (3.1.13)
     bcrypt (3.1.13-java)
     bindex (0.8.1)
+    boostrap-sass (0.0.2)
+      bootstrap-sass
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     bootsnap (1.4.4-java)
       msgpack (~> 1.0)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.28.0)
@@ -200,9 +207,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.0.1)
+      ffi (~> 1.9)
+      rake
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    simple_form (4.1.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+    simple_nested_form (1.1.1)
+      simple_form (>= 1.3.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -250,6 +265,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  boostrap-sass (~> 0.0.2)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -267,6 +283,8 @@ DEPENDENCIES
   ruby
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form (~> 4.1)
+  simple_nested_form (~> 1.1, >= 1.1.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
