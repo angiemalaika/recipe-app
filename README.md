@@ -336,3 +336,17 @@ Users #_errors, new, show
     <p><%= link_to 'View Recipes', user_recipes_path %></p>	
   </div>	
 </div> 
+
+
+ <div class="form-group">	
+    <%= f.label :name %><br>	
+    <%= f.text_field :name, class: "form-control" %></div>	
+        <br>
+     <%= f.label :prep_time %><br>	
+    <%= f.text_field :prep_time, class: "form-control" %></div>	
+<br>
+      <%= f.label :cooking_time %><br>	
+    <%= f.text_field :cooking_time, class: "form-control" %></div>	
+<br>
+     <%= f.label :serves%><br>	
+    <%= f.text_field :serves, class: "form-control" %></div>	

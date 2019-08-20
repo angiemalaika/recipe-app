@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'simple_form', '~> 4.1'
+# gem 'paperclip', '~> 6.1'gem 'paperclip', '~> 6.1'
 ruby '2.6.1'
 gem 'dotenv-rails'
-gem 'simple_nested_form', '~> 1.1', '>= 1.1.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.14'
+gem 'jquery-rails'
 #gem 'haml'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'autoprefixer-rails'

@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>RecipeApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+<title>Recipe App</title>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</body>
+<span class="icon-bar"></span>	 
+</button>
 
-  <body>
-    <%= yield %>
+  <a class="navbar-brand" href="<%=root_path %>">Recipe App</a>
+
+        <%= link_to "New Recipe", new_recipe_path, class:"navbar-brand" %>          <%= link_to "Sign Out", root_path,  class:"navbar-brand" %></nav>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav"></ul>
+    </div>
+
+    <div class="container"></div>
+
+              <%= yield %>
   </body>
 </html>

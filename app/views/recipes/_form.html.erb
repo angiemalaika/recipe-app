@@ -1,18 +1,30 @@
-<%= form_for(@recipe) do |f| %>	
-  <div class="form-group">	
-    <%= f.label :name %><br>	
-    <%= f.text_field :name, class: "form-control" %></div>	
-        <br>
-     <%= f.label :prep_time %><br>	
-    <%= f.text_field :prep_time, class: "form-control" %></div>	
-<br>
-      <%= f.label :cooking_time %><br>	
-    <%= f.text_field :cooking_time, class: "form-control" %></div>	
-<br>
-     <%= f.label :serves%><br>	
-    <%= f.text_field :serves, class: "form-control" %></div>	
+<%= simple_form_for(@recipe) do |f| %>	
+<%= f.input :name %>
+<%= f.input :prep_time %>
+<%= f.input :cooking_time%>
+<%= f.input :serves %>
 <br><br>
-   <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>	
-  </div>	
-<% end %> 
+
+
+  <h3>Ingredients</h3>
+      <%= f.simple_fields_for :ingredients do |ingredient| %>
+        <%= render 'ingredient_fields', f: ingredient %>
+        <% end %>
+   
+        <%= link_to_add_association 'Add Ingredient', f, :ingredients %></div>
+
+<br><br>
+
+  <h3>Directions</h3>
+    <%= f.simple_fields_for :directions do |direction| %>
+      <%= render 'direction_fields',f: direction %>
+        <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Step' , f, :directions %></div>
+
+<br>
+    <%= f.submit %>
+    
+    <% end %>
+
+
