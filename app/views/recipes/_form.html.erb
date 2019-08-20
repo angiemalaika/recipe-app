@@ -10,10 +10,10 @@
       <%= f.simple_fields_for :ingredients do |ingredient| %>
         <%= render 'ingredient_fields', f: ingredient %>
         <% end %>
-   
+     <div class="links">
         <%= link_to_add_association 'Add Ingredient', f, :ingredients %></div>
 
-<br><br>
+<br>
 
   <h3>Directions</h3>
     <%= f.simple_fields_for :directions do |direction| %>
@@ -23,6 +23,7 @@
       <%= link_to_add_association 'Add Step' , f, :directions %></div>
 
 <br>
+
     <%= f.submit %>
     
     <% end %>

@@ -1,22 +1,19 @@
-<div class="main_content">
-  <div class="row" id="recipe_top">
-<div class="col-md-8">
-  <div id="recipe_info">
-  <p><strong>Name:  </strong><%= @recipe.name %>  |  <strong>Prep Time:  </strong><%=@recipe.prep_time %></p>
-   <p><strong>Cooking Time:  </strong><%=@recipe.cooking_time %>  |   <strong>Serving Yields:  </strong><%=@recipe.serves %></p>
+<p><strong>Name:  </strong><%= @recipe.name %>  |  <strong>Prep Time:  </strong><%=@recipe.prep_time %></p>
+<p><strong>Cooking Time:  </strong><%=@recipe.cooking_time %>  |   <strong>Serving Yields:  </strong><%=@recipe.serves %></p>
   <div class="row">
     <div class="col-md-6">
       <div id="ingredients">
         <h2>Ingredients</h2>
         <ul>
-          <% @recipe.ingredients.each do |ingredient| %>
+        <% @recipe.ingredients.each do |ingredient| %>
             <li>
-              <%= ingredient.name %>
+            <%= ingredient.name %>
             </li>
           <% end %>
-        </ul>
+          </ul>
       </div>
     </div>
+
     <div class="col-md-6">
       <div id="directions">
         <h2>Directions</h2>
@@ -29,9 +26,11 @@
         </ul>
       </div>
     </div>
-  </div>
-</div>
 
+   <div class="column">
+<div class="col-md-4">
 <%= link_to "Back", root_path, class: "btn btn-default" %>
 <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default " %>
+</div>
+</div>
