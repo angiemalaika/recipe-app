@@ -26,6 +26,6 @@ end
 
   def user_params 
         
-         params.require(:recipe).permit(:name,:password,:email,:id )
+         params.require(:recipe).permit(:name,:password,:email)
     end 
 # params[:user][:email].present? && !User.exists (:email =>params [:user][email])

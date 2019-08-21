@@ -1,5 +1,6 @@
 <p><strong>Name:  </strong><%= @recipe.name %>  |  <strong>Prep Time:  </strong><%=@recipe.prep_time %></p>
-<p><strong>Cooking Time:  </strong><%=@recipe.cooking_time %>  |   <strong>Serving Yields:  </strong><%=@recipe.serves %></p>
+<p><strong>Cooking Time:  </strong><%=@recipe.cooking_time %>  |   <strong>Serving Yields:  </strong><%= @recipe.serves %></p>
+<p> <strong> Submitted by:</strong> <%= @recipe.user.name%> <p> 
   <div class="row">
     <div class="col-md-6">
       <div id="ingredients">
@@ -26,11 +27,12 @@
         </ul>
       </div>
     </div>
-
+<% if user_signed_in? %>
    <div class="column">
-<div class="col-md-4">
+<div class="col-md-12">
 <%= link_to "Back", root_path, class: "btn btn-default" %>
 <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default " %>
 </div>
 </div>
+ <% end %>

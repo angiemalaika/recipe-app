@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :comments
+  devise_for :users
+  root to: 'recipes#index'
+  resources :recipes
+  end 
+    
   # get '/auth/github/callback', to: 'sessions#create'
   # get '/logout' => 'sessions#destroy', :as => 'logout'
   # get '/login' => 'sessions#new', :as => 'login'
@@ -7,8 +13,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # resources :users , only: [:new, :create,:show] do 
-  resources :recipes
-  root to: 'recipes#index'
   # end 
-end
+
 

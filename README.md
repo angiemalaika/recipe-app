@@ -350,3 +350,17 @@ Users #_errors, new, show
 <br>
      <%= f.label :serves%><br>	
     <%= f.text_field :serves, class: "form-control" %></div>	
+
+
+    change layout nav bar 
+
+    <!DOCTYPE html>
+<head>
+<title>Recipe App</title>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+
+</body>
+<span class="icon-bar"></span>	 
+</button>

@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  recipe: one
-  description: MyString
+  belongs_to: 
+  belongs_to: 
 
 two:
-  user: two
-  recipe: two
-  description: MyString
+  belongs_to: 
+  belongs_to: 
