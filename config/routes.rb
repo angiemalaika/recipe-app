@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-   root to: 'recipes#index'
-resources :recipes do
-    put :favorite, on: :member
-  end
+  
+    root to: 'recipes#index'
+    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+     resources :recipes do
+         put :favorite, on: :member
+       end
   end 
     
   # get '/auth/github/callback', to: 'sessions#create'

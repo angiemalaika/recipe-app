@@ -27,14 +27,16 @@
         </ul>
       </div>
     </div>
-<% if user_signed_in? %>
+
    <div class="column">
 <div class="col-md-12">
-<%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), method: :put,class: "btn btn-default"  %>
-<%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), method: :put,class: "btn btn-default"  %>
 <%= link_to "Back", root_path, class: "btn btn-default" %>
+<%if current_user && current_user == @recipe.user %> 
 <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default " %>
 </div>
 </div>
- <% end %>
+ <%elsif current_user && current_user != @recipe.user_id %>
+<%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), method: :put,class: "btn btn-default"  %>
+<%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), method: :put,class: "btn btn-default"  %>
+<%end %>

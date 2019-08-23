@@ -1,32 +1,32 @@
 class SessionsController < ApplicationController
   #skip_before_action :authentication_required, :only => [:new, :create]
 
-  def new 
-  end 
+#   def new 
+#   end 
 
-  def create
-      if auth = request.env["omniauth.auth"]     #logged in via oauth 
-        user =User.find_or_create_by_omniauth(auth)
-        session[:user_id] = user.id 
-             redirect_to root_path
-  else
-    user = User.find_by(:email =>params[:email])  #normal login with username and password
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id 
-          redirect_to root_path
-        else 
-         render 'sessions/new'
-     end 
-    end 
-  end 
+#   def create
+#       if auth = request.env["omniauth.auth"]     #logged in via oauth 
+#         user =User.find_or_create_by_omniauth(auth)
+#         session[:user_id] = user.id 
+#              redirect_to root_path
+#   else
+#     user = User.find_by(:email =>params[:email])  #normal login with username and password
+#       if user && user.authenticate(params[:password])
+#         session[:user_id] = user.id 
+#           redirect_to root_path
+#         else 
+#          render 'sessions/new'
+#      end 
+#     end 
+#   end 
 
 
 
-  def destroy
-    reset_session
-    redirect_to login_path
-  end 
-end
+#   def destroy
+#     reset_session
+#     redirect_to login_path
+#   end 
+# end
 
 
  # if params[:email].present? && params[:password].present?
