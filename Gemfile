@@ -13,7 +13,7 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'autoprefixer-rails'
 =======
 
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
 >>>>>>> Stashed changes
 gem 'ruby'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -2,9 +2,9 @@
 <%= f.input :name %>
 <%= f.input :prep_time %>
 <%= f.input :cooking_time%>
-<%= f.input :serves %>
-<br><br>
+<%= f.input :serves, input_html: { min: '1'}%>
 
+<br>
 
   <h3>Ingredients</h3>
       <%= f.simple_fields_for :ingredients do |ingredient| %>

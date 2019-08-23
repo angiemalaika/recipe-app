@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'recipes#index'
-  resources :recipes
+   root to: 'recipes#index'
+resources :recipes do
+    put :favorite, on: :member
+  end
   end 
     
   # get '/auth/github/callback', to: 'sessions#create'

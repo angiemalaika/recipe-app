@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
     #dry
     before_action :authenticate_user!, except: [:index, :show]
-    before_action :find_recipe, only:[:show, :edit, :update, :destroy]
+    before_action :find_recipe, only:[:show, :edit, :update, :destroy,:favorite]
 
     def index 
         @recipes = Recipe.all.order("created_at DESC")
@@ -40,6 +40,22 @@ class RecipesController < ApplicationController
         @recipe.destroy
 		redirect_to root_path, notice: "Successfully deleted recipe"
     end
+
+    def favorite
+        type = params[:type]
+        if type == "favorite"
+          current_user.favorites << @recipe
+          redirect_to :back, notice: "You favorited #{@recipe.name}"
+    
+        elsif type == "unfavorite"
+          current_user.favorites.delete(@recipe)
+          redirect_to :back, notice: "Unfavorited #{@recipe.name}"
+    
+        else
+          # Type missing, nothing happens
+          redirect_to :back, notice: 'Nothing happened.'
+        end
+      end
     
     private 
 
