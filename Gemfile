@@ -8,13 +8,8 @@ gem 'devise', '~> 4.7'
 gem 'cocoon', '~> 1.2', '>= 1.2.14'
 gem 'jquery-rails'
 #gem 'haml'
-<<<<<<< Updated upstream
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'autoprefixer-rails'
-=======
-
-
->>>>>>> Stashed changes
 gem 'ruby'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
