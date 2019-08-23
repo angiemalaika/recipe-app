@@ -41,24 +41,6 @@ class RecipesController < ApplicationController
         @recipe.destroy
 		redirect_to root_path, notice: "Successfully deleted recipe"
     end
-
-    # def favorite
-    #     type = params[:type]
-    #     if type == "favorite" 
-    #       current_user.favorites << @recipe
-    #       redirect_to :back, notice: "You favorited #{@recipe.name}"
-    
-    #     elsif type == "unfavorite" 
-    #       current_user.favorites.delete(@recipe)
-    #       redirect_to :back, notice: "Unfavorited #{@recipe.name}"
-    
-    #     else
-    #       # Type missing, nothing happens
-
-    #       redirect_to :back, notice: 'Not Permitted to Favourite or Unfavourite your own recipe!!'
-    #     end
-    #   end
-
       def favorite
         type = params[:type]
         if type == "favorite"
@@ -68,12 +50,12 @@ class RecipesController < ApplicationController
         elsif type == "unfavorite"
           current_user.favorites.delete(@recipe)
           redirect_to :root, notice: "Unfavorited #{@recipe.name}"
-    
+
         else
           # Type missing, nothing happens
           redirect_to :root, notice: 'Nothing happened.'
-        end
-      end
+   end
+end
     
     private 
 
